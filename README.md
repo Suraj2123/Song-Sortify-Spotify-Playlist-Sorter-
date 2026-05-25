@@ -10,8 +10,8 @@ Authors:
 
  Song Sortify is a mobile application that connects to a user’s Spotify account and automatically organizes their liked songs into custom playlists based on genre and overall “vibe.” Many Spotify users accumulate hundreds or even thousands of liked songs over time, making it difficult to manually create organized playlists. This project automates that process and allows users to enjoy their music in a more structured and personalized way.
 
-**Why is it important or interesting to us?**  
-This project is important and interesting to our team because we personally experience the challenge of having too many liked songs without the time or motivation to sort them into playlists. Music listening often becomes random instead of matching a specific mood or genre. Song Sortify solves this problem by instantly creating playlists that fit different vibes such as chill, upbeat, or specific genres like hip-hop or EDM.
+**Why is it important or interesting to me?**  
+This project is important and interesting to me because I personally experience the challenge of having too many liked songs without the time or motivation to sort them into playlists. Music listening often becomes random instead of matching a specific mood or genre. Song Sortify solves this problem by instantly creating playlists that fit different vibes such as chill, upbeat, or specific genres like hip-hop or EDM.
 
 **Languages, tools, and technologies we plan to use:**  
 - Backend: Python  
@@ -74,13 +74,13 @@ The class diagram represents the classes we will use in our Song Sortify project
 
 ![UML Diagram](assets/README-images//backend.drawio.png) 
 
-We introduced the sort interface to create abstract sorting behavior. As a result of this, the playlist service now relies on the interface rather than the specific sorting classes. This satisfied the open-closed principles because it allows for new strategies to be added without modifying the existing logic. 
+I introduced the sort interface to create abstract sorting behavior. As a result of this, the playlist service now relies on the interface rather than the specific sorting classes. This satisfied the open-closed principles because it allows for new strategies to be added without modifying the existing logic. 
 
-We created separate classes for sorting the genre, year, and artist and implemented a single sorting behavior. This practice incorporates the single responsibility aspect from the SOLID principles. This ensures that the class becomes isolated to solving one condition and only has one reason to be edited or changed.
+I created separate classes for sorting the genre, year, and artist and implemented a single sorting behavior. This practice incorporates the single responsibility aspect from the SOLID principles. This ensures that the class becomes isolated to solving one condition and only has one reason to be edited or changed.
 
-We made the playlist service class after recalling the SOLID principles. The addition of this class allows us to depend on the abstractions and the playlist service class instead of the playlist. By doing this, we rely on the high level module instead of the low level module.
+I made the playlist service class after recalling the SOLID principles. The addition of this class allows me to depend on the abstractions and the playlist service class instead of the playlist. By doing this, we rely on the high level module instead of the low level module.
 
-We changed the sort track to show that the sorting strategy is passed in. We also decided to add a dependency arrow from PlaylistService to the SortInterfacee to show that the Playlist service depends on abstraction as emphasized in the SOLID Principles.
+I changed the sort track to show that the sorting strategy is passed in. I also decided to add a dependency arrow from PlaylistService to the SortInterfacee to show that the Playlist service depends on abstraction as emphasized in the SOLID Principles.
 
 ![UML Diagram](assets/README-images//frontend.drawio.png) 
 
