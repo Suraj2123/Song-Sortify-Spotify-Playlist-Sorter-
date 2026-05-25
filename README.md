@@ -4,9 +4,6 @@
 # Song Sortify (Spotify Playlist Sorter)
  
 Authors:  
-[Paolo Salazar](https://github.com/paoloprogram12)  
-[Faisal Mushtaq](https://github.com/faisalthe1)  
-[Moustafa Afif](https://github.com/mafif001)  
 [Suraj Yarrapathruni](https://github.com/suraj2123)  
 
 ## Project Description
