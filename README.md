@@ -70,18 +70,7 @@ The Settings Page shows users several options, account, appearance, and support 
 ![UML Diagram](assets/README-images/UML.drawio.png) 
 
 The class diagram represents the classes we will use in our Song Sortify project. The User class allows the user to store their user ID and username into their account information. A user can have multiple playlists since playlists belong to the user. The playlist class represents a collection of tracks where a user can add and remove songs as well as getting the songs.The track class represents an individual song and stores its attributes like title and album and year. Each track is associated with to a single artist while an artist can be associated to multiple tracks. The artist class represents the creator of the tracks and stores in the name of the artist and the genre they belong too.
- 
- > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
+
 
 ![UML Diagram](assets/README-images//backend.drawio.png) 
 
@@ -95,27 +84,7 @@ We changed the sort track to show that the sorting strategy is passed in. We als
 
 ![UML Diagram](assets/README-images//frontend.drawio.png) 
 
-Our README contains 5 main screens. A HomeScreen, LoginScreen, OptionsScreen, SettingScreens, and a ResultsScreen for the frontend of this project. These screens represent the layer of the frontend from a logical standpoint and handles the Authentication login.
-
-
- > * Perform a new sprint plan like you did in Phase II.
- > * Make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
->  * Each team member should also submit the Peer Evaluation Form on Canvas for phase III. In this form, you need to fill in the names of all team members, the percentage of work contributed by each member for phase III, and a description of their contributions. Remember that each team member should submit the form individually.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
-
- 
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history.
->  * Each team member should also submit the Peer Evaluation Form on Canvas for this final phase. In this form, you need to fill in the names of all team members, the percentage of work contributed by each member for the final phase, and a description of their contributions. Remember that each team member should submit the form individually.
+The README contains 5 main screens. A HomeScreen, LoginScreen, OptionsScreen, SettingScreens, and a ResultsScreen for the frontend of this project. These screens represent the layer of the frontend from a logical standpoint and handles the Authentication login.
  
  ## Screenshots
 
