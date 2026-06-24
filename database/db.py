@@ -110,21 +110,18 @@ def delete_user_liked_songs(user_id):
 
 # THIS IS FOR THE GENRE SORTING
 
-def get_or_create_genre(name, type): # name is category name, type is the type of category, like vibe or genre
+def get_or_create_genre(name: str, category_type: str) -> int:
     with get_connection() as conn:
         row = conn.execute(
-            # chekcs if there is a genre with the name and type already, '?' is a placeholder
-            'SELECT * FROM genres WHERE name = ? AND type = ?', (name, type)
+            'SELECT * FROM genres WHERE name = ? AND type = ?', (name, category_type)
         ).fetchone()
-        if row is None: # if it doesnt exist yet, it inserts the name and type and creates a genre id
+        if row is None:
             conn.execute(
-                'INSERT INTO genres (name, type) VALUES (?, ?)', (name, type)
+                'INSERT INTO genres (name, type) VALUES (?, ?)', (name, category_type)
             )
-            # grabs the id of the row
             genre_id = conn.execute('SELECT last_insert_rowid()').fetchone()[0]
         else:
             genre_id = row[0]
-    # returns a tuple (id, name, type)
     return genre_id
 
 def add_song_genre(song_id, genre_id): # song_id is the id of the song from liked_songs, genre_id is the id from creating genre
