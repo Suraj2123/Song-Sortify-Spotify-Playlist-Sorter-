@@ -1,5 +1,10 @@
 .DS_Store
 
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
 # Python
 __pycache__/
 *.pyc
@@ -14,4 +19,8 @@ node_modules/
 
 # Local databases
 *.db
+
+# Editor artifacts
+*.swp
+*.swo
 
