@@ -14,25 +14,18 @@ export default function HomeScreen({ navigation }) {
     async function fetchSpotifyData() {
 
       try {
-        const token = await getAccessToken(); // gets token
-        console.log('Token:', token);
+        const token = await getAccessToken();
 
-        // /v1/me means your profile
-        // v1/me/trakcs means it gets your liked songs
-        
-        // get username
         const profileRes = await fetch('https://api.spotify.com/v1/me', {
-          headers: { Authorization: `Bearer ${token}` } // Bearer is a authorization header, meaning it gives permission to access the data
+          headers: { Authorization: `Bearer ${token}` },
         });
-        console.log('Profile status:', profileRes.status);
         if (profileRes.status !== 200) return;
         const profile = await profileRes.json();
         setUsername(profile.display_name);
 
         const likedRes = await fetch('https://api.spotify.com/v1/me/tracks?limit=1', {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}` },
         });
-        console.log('Liked status:', likedRes.status);
         if (likedRes.status !== 200) return;
         const liked = await likedRes.json();
         setLikedSongs(liked?.total ?? 0); // sets likedSongs variable with liked

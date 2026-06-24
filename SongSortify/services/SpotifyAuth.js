@@ -22,9 +22,7 @@ const discovery = {
 };
 
 export function useSpotifyAuth() {
-    // created the URI
     const redirectUri = AuthSession.makeRedirectUri({ useProxy: true });
-    console.log('Redirect URI:', redirectUri);
 
     // sets up the authentication with the id, scopes, and security
     const [request, response, promptAsync] = AuthSession.useAuthRequest(

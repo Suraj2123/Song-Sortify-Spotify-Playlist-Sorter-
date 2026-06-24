@@ -16,16 +16,16 @@ function getDefaultBackendUrl() {
     const host = hostUri?.split(':')[0];
 
     if (host) {
-      return `http://${host}:5000`;
+      return `http://${host}:5001`;
     }
   } catch (error) {
     console.warn('Could not infer backend host from Expo config:', error?.message ?? error);
   }
 
-  return 'http://127.0.0.1:5000';
+  return 'http://127.0.0.1:5001';
 }
 
-const BACKEND_URL = getDefaultBackendUrl();
+export const BACKEND_URL = getDefaultBackendUrl();
 
 // Backend errors may come back as JSON or plain text, so normalize both into one payload.
 async function parseResponse(response) {

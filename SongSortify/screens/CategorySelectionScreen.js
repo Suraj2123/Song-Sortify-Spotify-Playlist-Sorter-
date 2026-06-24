@@ -7,6 +7,7 @@ import { tabOptions } from '../constants/categories';
 import { ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { getAccessToken } from '../services/SpotifyAuth';
+import { BACKEND_URL } from '../services/SyncSongs';
 
 const options = ['Vibe', 'Genre', 'Year', 'Artist'];
 
@@ -22,21 +23,23 @@ export default function CategorySelection({ navigation }) {
 
     // for displaying certain artists
     const [artists, setArtists] = useState([]);
+    const [artistError, setArtistError] = useState(null);
 
-    // for now, handles displaying artists
     useEffect(() => {
         async function fetchArtists() {
             try {
                 const token = await getAccessToken();
-                // may need to change url depending on server
-                const response = await fetch('http://10.13.229.136:5001/spotify/artists', {
-                    headers: { Authorization:   `Bearer ${token}` }
+                const response = await fetch(`${BACKEND_URL}/spotify/artists`, {
+                    headers: { Authorization: `Bearer ${token}` },
                 });
                 const data = await response.json();
-                console.log('First artist:', JSON.stringify(data.artists[0]));
+                if (!response.ok) {
+                    setArtistError(data.error ?? 'Could not load artists. Sync your songs first.');
+                    return;
+                }
                 setArtists(data.artists);
             } catch (err) {
-                console.log('Error fetching artists:', err.message);
+                setArtistError('Could not reach the backend. Is the server running?');
             }
         }
         fetchArtists();
@@ -56,7 +59,6 @@ export default function CategorySelection({ navigation }) {
                     <MaterialIcons name="arrow-back-ios" size={26} color="#ffffff" />
                 </TouchableOpacity>
                 <Text style={styles.title}>Create Your Mix</Text>
-                {/* <View style={{ width: 28 + 16 }} /> */}
                 {selectedOptions.length > 0 ? (
                     <TouchableOpacity style={styles.clearOption} onPress={() => setSelectedOptions([])}>
                         <Text style={styles.clearOptionText}>CLEAR</Text>
@@ -178,6 +180,9 @@ export default function CategorySelection({ navigation }) {
             {/* Artist Card */}
             {selected === 'Artist' && (
                 <View style={styles.artistView}>
+                    {artistError ? (
+                        <Text style={styles.artistErrorText}>{artistError}</Text>
+                    ) : null}
                     <View style={styles.grid}>
                         {artists.map((artist) => (
                             <TouchableOpacity
@@ -384,12 +389,11 @@ const styles = StyleSheet.create({
     },
     genreCard: {
         backgroundColor: '#1DB954',
-        width: 40,
         height: 90,
         padding: 10,
         width: '45%',
         margin: '2%',
-        borderRadius: 10
+        borderRadius: 10,
     },
     selectedGenreCard: {
         borderWidth: 3,
@@ -473,5 +477,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#161515',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    artistErrorText: {
+        color: '#9ca3af',
+        textAlign: 'center',
+        fontSize: 14,
+        paddingHorizontal: 24,
+        paddingTop: 16,
     },
 });
