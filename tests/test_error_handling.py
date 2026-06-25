@@ -111,7 +111,6 @@ def test_lastfm_tags_missing_api_key(monkeypatch, tmp_path):
 # ---------------------------------------------------------------------------
 
 def test_sort_preview_zero_matches(monkeypatch, tmp_path):
-    from database import db as dbmod
     from routes import spotify as spotify_mod
 
     app, dbmod = build_app(monkeypatch, tmp_path)
@@ -166,7 +165,6 @@ def test_artists_user_not_found(monkeypatch, tmp_path):
 
 
 def test_artists_returns_list(monkeypatch, tmp_path):
-    from database import db as dbmod
     from routes import spotify as spotify_mod
 
     app, dbmod = build_app(monkeypatch, tmp_path)

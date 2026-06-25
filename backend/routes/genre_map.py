@@ -24,7 +24,6 @@ GENRE_MAP = {
     'indie pop': 'Pop',
     'hyperpop': 'Pop',
     'dream pop': 'Pop',
-    'korean r&b': 'Pop',
 
     # ===== More R&B =====
     'alternative r&b': 'R&B',
