@@ -10,6 +10,11 @@ class FakeResponse:
     def json(self):
         return self._payload
 
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            import requests as _requests
+            raise _requests.HTTPError(response=self)
+
 
 def build_test_app():
     # Build a minimal Flask app that registers your blueprints so we can call endpoints.
@@ -60,7 +65,7 @@ def test_backend_routes_and_helpers(monkeypatch, tmp_path):
     assert isinstance(vibes, list)
 
     # Mock all outbound HTTP in one place
-    def fake_get(url, headers=None, params=None):
+    def fake_get(url, headers=None, params=None, timeout=None):
         # This function replaces `requests.get` inside the route modules.
         # We return predictable responses based on the URL being requested.
         # Spotify /me
